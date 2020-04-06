@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/Drewqilong/mean_catmint/issues"
   },
-  "homepage": "https://github.com/Drewqilong/mean_catmint#readme"
+  "homepage": "https://github.com/Drewqilong/mean_catmint#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7",
+    "morgan": "^1.10.0"
+  }
 }
