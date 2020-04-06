@@ -1,7 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const User = require('./app/models/user');
+const bodyParser = require('body-parser'); // Node.js body parsing middleware. Parses incoming request bodies in a middleware before your handlers, available under req.body.
+
 const app = express();
+app.use(bodyParser.json()); // Body-parser middleware
+app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 
 const port = process.env.PORT || 8080 
 
@@ -20,7 +25,7 @@ mongoose.connection.on('connected', ()=>{
 //HTTP request logger
 app.use(morgan('tiny'));
 
-app.use(express.static(__dirname + '/client/public'));
+//app.use(express.static(__dirname + '/client/public'));
 
 
 //Routes
@@ -45,6 +50,15 @@ app.get("/api", (req, res)=>{
         });
 
     
+});
+
+// http://localhost:8080/users
+app.post('/users', function(req, res){
+    var user = new User();
+    user.email = req.body.email;
+    user.password = req.body.password;
+    user.save();
+    res.send('User created!')
 });
 
 app.listen(port, function() {
