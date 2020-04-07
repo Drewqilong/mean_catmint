@@ -20,10 +20,32 @@ const port = process.env.PORT || 8080
 
 const MONGODB_URI = 'mongodb+srv://dbuser:8fO56qa3wBdNYtsk@cluster0-bhgly.mongodb.net/test?retryWrites=true&w=majority';
 
-mongoose.connect(MONGODB_URI || 'mongodb://localhost/test', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+var options = { 
+  server: { 
+    socketOptions: { 
+      keepAlive: 300000, connectTimeoutMS: 30000 
+    } 
+  }, 
+  replset: { 
+    socketOptions: { 
+      keepAlive: 300000, 
+      connectTimeoutMS : 30000 
+    } 
+  } 
+};
+
+if(process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI, options);
+  } else {
+  
+    // Connect to local database
+  
+    mongoose.connect(MONGODB_URI || 'mongodb://localhost/test', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    });
+  };
+  
 
 mongoose.connection.on('connected', ()=>{
     console.log('Mongoose is connected!!!!');
