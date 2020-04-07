@@ -14,11 +14,6 @@ module.exports = function(router) {
     // };
 //Routes
 
-    router.get("/", function(req, res){
-        // res.render("index");
-        res.send("Hello World!")
-    });
-
     router.get("/api", (req, res)=>{
         const data = {
             username: 'Kitty',

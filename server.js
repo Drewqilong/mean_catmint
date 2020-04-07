@@ -9,7 +9,7 @@ const appRoutes = require('./app/routes/api')(router);
 
 const app = express();
 //HTTP request logger
-app.use(morgan('tiny'));
+app.use(morgan('dev')); // Morgan Middleware
 
 app.use(bodyParser.json()); // Body-parser middleware
 app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
@@ -34,7 +34,6 @@ var options = {
   } 
 };
 
-console.log(process.env.MONGODB_URI)
 
 if(process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI, options, function(err) {
@@ -57,6 +56,7 @@ if(process.env.MONGODB_URI) {
 
 mongoose.connection.on('connected', ()=>{
     console.log('Mongoose is connected!!!!');
+    console.log(process.env.MONGODB_URI);
 });
 
 // Set Application Static Layout
