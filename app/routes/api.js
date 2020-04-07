@@ -41,11 +41,19 @@ module.exports = function(router) {
         var user = new User();
         user.email = req.body.email;
         user.password = req.body.password;
-        user.save(function(err){
-            if (err) {
-                res.send('Email already exists');
-            } else {res.send('User created!')}
-        });
+        // Check if request is valid and not empty or null
+        if (req.body.email === null || req.body.email === '' || req.body.password === null || req.body.password === '') {
+            res.json({ success: false, message: 'Ensure email, and password were provided' });
+        } else {
+            // Save new user to database
+            user.save(function(err) {
+                if (err) {
+                    res.json({ success: false, message: 'Email or password already exists' });
+                } else {
+                    res.json({ success: true, message: 'User created' });
+                }
+            });
+        }
         
     });
     return router;
