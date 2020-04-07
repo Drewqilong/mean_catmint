@@ -35,7 +35,13 @@ var options = {
 };
 
 if(process.env.MONGODB_URI) {
-    mongoose.connect(process.env.MONGODB_URI, options);
+    mongoose.connect(process.env.MONGODB_URI, options, function(err) {
+        if (err) {
+            console.log('Not connected to the database: ' + err); // Log to console if unable to connect to database
+        } else {
+            console.log('Successfully connected to MongoDB'); // Log to console if able to connect to database
+        }
+    });
   } else {
   
     // Connect to local database
