@@ -30,9 +30,16 @@ var app = angular.module('appRoutes', ['ngRoute'])
         authenticated: false
     })
 
+    // Route: User Logout
+    .when('/logout', {
+        templateUrl: 'app/views/pages/users/logout.html',
+    })
+
     // Route: User Profile
     .when('/profile', {
         templateUrl: 'app/views/pages/users/profile.html',
+        controller: 'profileEditCtrl',
+        controllerAs: 'profileEdit',
         authenticated: true
     })
 

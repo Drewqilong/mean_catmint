@@ -11,16 +11,17 @@ angular.module('userControllers', ['userServices'])
                 app.successMsg = data.data.message;
                 //redirect to home page
                 $timeout(function(){
-                    $location.path('/');
+                    $location.path('/login');
+                    app.regData = '';
                 }, 2000)
             } else{
                 app.errorMsg = data.data.message;
                 
             }
-        })
-    }
+        });
+    };
     
-})
+});
 
 
 

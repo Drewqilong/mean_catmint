@@ -56,6 +56,9 @@ h1, .section-header h3{
   font-family: "Indie Flower", sans-serif;
 }
 
+h5{
+  color: rgba(204, 177, 208, 0.8);
+}
 #about .pfont h2{
   font-family: "Indie Flower", sans-serif;
 }

@@ -73,6 +73,11 @@ angular.module('userServices', [])
         return $http.get('/api/edit/' + id);
     };
 
+    // Get profile to then edit
+    userFactory.getProfile = function(id) {
+        return $http.get('/api/profile');
+    };
+
     // Delete a user
     userFactory.deleteUser = function(username) {
         return $http.delete('/api/management/' + username);

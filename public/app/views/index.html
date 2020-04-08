@@ -31,9 +31,12 @@
 
     <!-- Angular Controllers -->
     <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/userProfileCtrl.js"></script>
 
     <!-- Angular Services -->
     <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
 
   <!-- Bootstrap CSS File -->
   <link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +52,7 @@
 
 </head>
 
-<body ng-app="userApp">
+<body ng-app="userApp" ng-controller='mainCtrl as main'>
 
     <div ng-view></div>
 
