@@ -62,23 +62,20 @@
   <!--==========================
     Header
   ============================-->
-  <header id="header" ng-show="main.indexBar">
+  <header id="header_index" ng-show="main.indexBar">
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#intro" class="scrollto"><img src="assets/img/logo.png" alt="" title="" height="53" width="53"></a>
-        <h1><a href="#intro" class="scrollto">Catmint</a></h1>
+        <a href="/" class="scrollto"><img src="assets/img/logo.png" alt="" title="" height="53" width="53"></a>
+        <h1><a href="/" class="scrollto">Catmint</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
 
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about">About Us</a></li>
+          <li class="menu-active"><a href="/">Home</a></li>
           <li><a href="/services">Services</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact Us</a></li>
           <li><a ng-show="!main.isLoggedIn" href="/login">Sign In</a></li>
           <li><a ng-show="!main.isLoggedIn" href="/register">Sign Up</a></li>
           <li><a ng-show="main.isLoggedIn" href="/profile">Hello {{ main.username }}</a></li>
