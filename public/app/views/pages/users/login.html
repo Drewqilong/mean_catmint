@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Login In</title>
+  <title>Login In</title>
 
   <link href="assets/css/login.css" rel="stylesheet">
 
 </head>
+
 <body>
 
-<!-- <h2>Modal Login Form</h2> -->
-<!-- action="/action_page.php" method="post"-->
+  <!-- <h2>Modal Login Form</h2> -->
+  <!-- action="/action_page.php" method="post"-->
   <form class="modal-content animate" ng-submit="main.doLogin(loginData);">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <span onclick="document.getElementById('id01').style.display='none'" class="close"
+        title="Close Modal">&times;</span>
       <img src="assets/img/logo.png" alt="Avatar" height="100" width="100">
     </div>
 
@@ -22,8 +25,8 @@
 
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required ng-model="main.loginData.password">
-        
-      <button type="submit" >Login</button>
+
+      <button type="submit">Login</button>
       <!-- <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label> -->
@@ -38,27 +41,26 @@
 
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><a
+          href="/">Cancel<a></a></button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
 
 
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
+  <script>
+    // Get the modal
+    var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
         modal.style.display = "none";
+      }
     }
-}
-
-</script>
+  </script>
 
 
 </body>
+
 </html>
-
-
