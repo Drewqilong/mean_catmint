@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Appointment</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/appointmentcss.css">
+</head>
+
+<body>
+
+
+  <div class="step_container">
+       <ul class="progressbar">
+          <li class="active">Appoiment</li>
+          <li >Check Out</li>
+          <li>Success</li>
+       </ul>
+  </div>
+
+<div class="page">
+<h1>Make an appointment</h1>	
+<h2>Appintment Date</h2>
+ <!-- <form action="" method="post" role="form" class="contactForm"> -->
+<label for="starttime">Start from (date and time):</label>
+<input type="datetime-local" id="startfm" name="startfm">
+<p></p>
+<label for="endtime">End at (date and time):</label>
+<input type="datetime-local" id="endat" name="endat">
+
+<!--
+<h2>Services</h2>
+<table>
+  <tr>
+    <th>Services</th>
+    <th>Prices</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Walk the cat</td>
+    <td>$50</td>
+	<td>
+    <input type="checkbox" id="service1" name="service1" value="walk">
+    </td>
+  </tr>
+  <tr>
+    <td>Feed the cat</td>
+    <td>$50</td>
+    <td>
+    <input type="checkbox" id="service2" name="service2" value="feed">
+    </td>
+  </tr>
+  <tr>
+    <td>Bring the cat to hospital</td>
+    <td>$50</td>
+    <td>
+    <input type="checkbox" id="service3" name="service3" value="hospital">
+    </td>
+  </tr>
+  
+</table>
+-->
+<p></p>
+<h2>Gender of our services staff(optional):</h2>
+    <input type="checkbox" id="female" name="service4" value="female">
+    <label for="vehicle1">Female</label>
+    <input type="checkbox" id="male" name="service4" value="male">
+    <label for="vehicle1">Male</label>
+
+<p></p>
+
+<!-- <h2>Comments</h2>
+<div class="row">   
+<textarea id="subject" name="subject" placeholder="Write something.."  rows="10" cols="50"></textarea> 
+</div> -->
+<h2>Comments</h2>
+<div id='message'>
+<div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Write something.."></textarea>
+                  <div class="validation"></div>
+                </div>
+<div class="row">
+    <a href="shoppingcart.html"><input type="submit" class="btn-checkout" value="Next"></a> 
+</div>
+</div>
+<!-- </form> -->
+</div>
+<p></p>
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 text-lg-left text-center">
+          <div class="copyright">
+            &copy; <strong>DEVELOPED BY TEAM 27</strong>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <a href="#intro" class="scrollto">Home</a>
+            <a href="#about" class="scrollto">About</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+</body>
+</html>

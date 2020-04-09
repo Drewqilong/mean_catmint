@@ -43,6 +43,11 @@ var app = angular.module('appRoutes', ['ngRoute'])
         authenticated: true
     })
 
+    // Route: appointment
+    .when('/appointment', {
+        templateUrl: 'app/views/pages/appointment.html',
+    })
+
     // Route: Facebook Callback Result            
     .when('/facebook/:token', {
         templateUrl: 'app/views/pages/users/social/social.html',

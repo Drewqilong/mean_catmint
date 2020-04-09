@@ -19,6 +19,12 @@ angular.module('mainController',['authServices'])
         } else {
             app.indexBar = true;
         }
+        // determine intro section
+        if (['/','/login','/logout','/register','/appointment'].lastIndexOf($window.location.pathname) !== -1){
+            app.intro = false;
+        } else {
+            app.intro = true;
+        }
     });
 
     $rootScope.$on('$routeChangeStart', function() {
