@@ -2,7 +2,7 @@
   <!--==========================
     Header
   ============================-->
-  <header id="header" >
+  <header id="header"  ng-show='!indexBar'>
     <div class="container">
 
       <div id="logo" class="pull-left">
@@ -17,7 +17,7 @@
           <li class="menu-active"><a href="#intro">Home</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="/services">Services</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#gallery" class="scrollto">Gallery</a></li>
           <li><a href="#contact">Contact Us</a></li>
           <li><a ng-show="!main.isLoggedIn" href="/login">Sign In</a></li>
           <li><a ng-show="!main.isLoggedIn" href="/register">Sign Up</a></li>
@@ -26,7 +26,9 @@
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
-  </header><!-- #header -->
+  </header>
+
+  <!-- #header -->
 
   <!--==========================
     Intro Section

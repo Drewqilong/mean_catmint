@@ -1,7 +1,26 @@
 angular.module('mainController',['authServices'])
 
-.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope) {
+.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope, $window) {
     var app = this;
+
+    if ($window.location.pathname === '/') app.home = true; // Check if user is on home page to show home page div
+
+    
+    $rootScope.$on('$routeChangeSuccess', function() {
+        // Check if user is on the home page
+        if ($window.location.pathname === '/') {
+            app.home = true; // Set home page div
+        } else {
+            app.home = false; // Clear home page div
+        }
+        // determine nav bar
+        if (['/','/login','/logout','/register'].lastIndexOf($window.location.pathname) !== -1){
+            app.indexBar = false;
+        } else {
+            app.indexBar = true;
+        }
+    });
+
     $rootScope.$on('$routeChangeStart', function() {
 
         if (Auth.isLoggedIn()) {
