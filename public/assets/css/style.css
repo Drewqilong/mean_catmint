@@ -184,7 +184,7 @@ h5{
   margin: 0;
 }
 
-#header_index.header_index-fixed {
+#header_index.header-fixed {
   background: linear-gradient(45deg, #1de099, #1dc8cd);
   background: linear-gradient(45deg, rgba(204, 177, 208, 1), rgba(180, 150, 208, 1));
   padding: 20px 0;

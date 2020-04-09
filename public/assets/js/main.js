@@ -16,12 +16,29 @@ jQuery(document).ready(function($) {
     $('#header').addClass('header-fixed');
   }
 
+  
   $('.back-to-top').click(function() {
     $('html, body').animate({
       scrollTop: 0
     }, 1500, 'easeInOutExpo');
     return false;
   });
+
+    // index Header fixed
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 100) {
+        $('.back-to-top').fadeIn('slow');
+        $('#header_index').addClass('header-fixed');
+      } else {
+        $('.back-to-top').fadeOut('slow');
+        $('#header_index').removeClass('header-fixed');
+      }
+    });
+  
+    if ($(this).scrollTop() > 100) {
+      $('.back-to-top').fadeIn('slow');
+      $('#header_index').addClass('header-fixed');
+    }
 
   // Initiate the wowjs animation library
   new WOW().init();
