@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Sign Up</title>
+  <title>Sign Up</title>
 
   <link href="assets/css/signup.css" rel="stylesheet">
 
 </head>
+
 <body>
 
 
 
- <!-- action="/action_page.php" -->
+  <!-- action="/action_page.php" -->
   <form class="modal-content" ng-submit="register.regUser(regData);">
     <div class="container">
       <h1>Sign Up</h1>
@@ -27,7 +29,7 @@
 
       <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
       <input type="password" placeholder="Repeat Password" name="psw-repeat" required> -->
-      
+
       <!-- <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px" ng-model="register.regData.remember"> Remember me
       </label> -->
@@ -37,6 +39,7 @@
       <div class="clearfix">
         <!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> -->
         <button type="submit" class="signupbtn">Sign Up</button>
+        <button type="submit" class="signupbtn">Cancel</button>
       </div>
       <!-- Custom Messages -->
       <div class="row show-hide-message" ng-show="register.successMsg || register.errorMsg">
@@ -46,21 +49,20 @@
       <!-- Custom Messages -->
     </div>
   </form>
-</div>
+  </div>
 
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
+  <script>
+    // Get the modal
+    var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
+
 </html>
-
-
