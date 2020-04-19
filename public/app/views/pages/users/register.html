@@ -38,10 +38,15 @@
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'"
-          class="cancelbtn">Cancel</button>
+
         <button type="submit" class="signupbtn">Sign Up</button>
 
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><a
+            href="/">Cancel</a></button>
+        <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
       </div>
       <!-- Custom Messages -->
       <div class="row show-hide-message" ng-show="register.successMsg || register.errorMsg">
