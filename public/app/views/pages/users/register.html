@@ -16,7 +16,7 @@
   <form class="modal-content" ng-submit="register.regUser(regData);">
     <div class="container">
       <h1>Sign Up</h1>
-
+      <button class="btn"><i class="fa fa-close"></i></button>
       <p>Please fill in this form to create an account.</p>
       <hr>
       <label for="username"><b>Username</b></label>
@@ -43,11 +43,7 @@
 
       </div>
 
-      <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><a
-            href="/">Cancel</a></button>
-        <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
-      </div>
+
       <!-- Custom Messages -->
       <div class="row show-hide-message" ng-show="register.successMsg || register.errorMsg">
         <!-- <div ng-class="alert">{{ register.successMsg || register.errorMsg }}</div> -->
