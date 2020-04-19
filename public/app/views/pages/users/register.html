@@ -16,6 +16,7 @@
   <form class="modal-content" ng-submit="register.regUser(regData);">
     <div class="container">
       <h1>Sign Up</h1>
+      <button class="btn"><i class="fa fa-close"></i> Close</button>
       <p>Please fill in this form to create an account.</p>
       <hr>
       <label for="username"><b>Username</b></label>
@@ -39,7 +40,7 @@
       <div class="clearfix">
         <!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> -->
         <button type="submit" class="signupbtn">Sign Up</button>
-        <button type="submit" class="signupbtn">Cancel</button>
+
       </div>
       <!-- Custom Messages -->
       <div class="row show-hide-message" ng-show="register.successMsg || register.errorMsg">
