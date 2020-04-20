@@ -45,24 +45,19 @@ button:hover {
   opacity: 1;
 }
 
-.btn {
-  background-color: DodgerBlue;
-  /* Blue background */
-  border: none;
-  /* Remove borders */
-  color: white;
-  /* White text */
-  padding: 12px 16px;
-  /* Some padding */
-  font-size: 16px;
-  /* Set a font size */
-  cursor: pointer;
-  /* Mouse pointer on hover */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
 }
 
-/* Darker background on mouse-over */
-.btn:hover {
-  background-color: RoyalBlue;
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
 }
 
 
