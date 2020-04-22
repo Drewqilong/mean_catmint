@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-	<title>Appointment</title>
+  <title>Appointment</title>
   <link rel="stylesheet" type="text/css" href="assets/css/appointmentcss.css">
 </head>
 
@@ -9,24 +10,24 @@
 
 
   <div class="step_container">
-       <ul class="progressbar">
-          <li class="active">Appoiment</li>
-          <li >Check Out</li>
-          <li>Success</li>
-       </ul>
+    <ul class="progressbar">
+      <li class="active">Appoiment</li>
+      <li>Check Out</li>
+      <li>Success</li>
+    </ul>
   </div>
 
-<div class="page">
-<h1>Make an appointment</h1>	
-<h2>Appintment Date</h2>
- <!-- <form action="" method="post" role="form" class="contactForm"> -->
-<label for="starttime">Start from (date and time):</label>
-<input type="datetime-local" id="startfm" name="startfm">
-<p></p>
-<label for="endtime">End at (date and time):</label>
-<input type="datetime-local" id="endat" name="endat">
+  <div class="page">
+    <h1>Make an appointment</h1>
+    <h2>Appintment Date</h2>
+    <!-- <form action="" method="post" role="form" class="contactForm"> -->
+    <label for="starttime">Start from (date and time):</label>
+    <input type="datetime-local" id="startfm" name="startfm">
+    <p></p>
+    <label for="endtime">End at (date and time):</label>
+    <input type="datetime-local" id="endat" name="endat">
 
-<!--
+    <!--
 <h2>Services</h2>
 <table>
   <tr>
@@ -58,69 +59,69 @@
   
 </table>
 -->
-<p></p>
-<h2>Gender of our services staff(optional):</h2>
+    <p></p>
+    <h2>Gender of our services staff(optional):</h2>
     <input type="checkbox" id="female" name="service4" value="female">
     <label for="vehicle1">Female</label>
     <input type="checkbox" id="male" name="service4" value="male">
     <label for="vehicle1">Male</label>
 
-<p></p>
+    <p></p>
 
-  <!--==========================
+    <!--==========================
     shopping cart
   ============================-->
-<div ng-init='load()'>
-<h2>Shopping Cart</h2>
-<table>
-  <tr>
-    <!--文本th-->
-    <th>Services</th>
-    <th>price($)/hr</th>    
-    <th>Operation</th>
-  </tr>
-  <tr>
-    <td>Feed the cat</td>
-    <td  >20</td>
-    <td align="center">
-      <input type="button" value="Add to the cart" onclick="add_shoppingcar(this)"/>
-    </td>
-  </tr>
-  <tr>
-<td>Walk the cat</td>
-    <td  >30</td>
-    <td align="center">
-      <input type="button" value="Add to the cart" onclick="add_shoppingcar(this)"/>
-    </td>
-  </tr>
-  <tr>
-<td>Bring the cat to the hospital</td>
-    <td >35</td>
-    <td align="center">
-      <input type="button" value="Add to the cart" onclick="add_shoppingcar(this)"/>
-    </td>
-  </tr>
-  
-</table> 
-<h2> Details</h2>
-<table>
-<thead>
-    <tr>
-    <th>Service</th>
-    <th>Price</th>
-    <th>Hours</th>
-    <th>Amount</th>
-    <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody id="goods">
-    <!--<tr>
+    <div ng-init='load()'>
+      <h2>Shopping Cart</h2>
+      <table>
+        <tr>
+          <!--文本th-->
+          <th>Services</th>
+          <th>price($)/hr</th>
+          <th>Operation</th>
+        </tr>
+        <tr>
+          <td>Feed the cat</td>
+          <td>20</td>
+          <td align="center">
+            <input type="button" value="Add to the cart" onclick="add_shoppingcar(this)" />
+          </td>
+        </tr>
+        <tr>
+          <td>Walk the cat</td>
+          <td>30</td>
+          <td align="center">
+            <input type="button" value="Add to the cart" onclick="add_shoppingcar(this)" />
+          </td>
+        </tr>
+        <tr>
+          <td>Bring the cat to the hospital</td>
+          <td>35</td>
+          <td align="center">
+            <input type="button" value="Add to the cart" onclick="add_shoppingcar(this)" />
+          </td>
+        </tr>
+
+      </table>
+      <h2> Details</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Price</th>
+            <th>Hours</th>
+            <th>Amount</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="goods">
+          <!--<tr>
     <td>面膜</td>
     <td>150</td>
     <td align="center"> 
       <input type="button" value="-" id="jian" onclick="change(this,-1);"/>-->
-      <!--readonly规定输入字段为只读-->
-      <!--<input id="text" type="text" size="1" value="1" readonly="readonly" />
+          <!--readonly规定输入字段为只读-->
+          <!--<input id="text" type="text" size="1" value="1" readonly="readonly" />
       <input type="button" value="+" id="add" onclick="change(this,1);"/>
     </td>
     <td> <input id="money" size="1" value="80"></input></td>
@@ -128,61 +129,63 @@
       <input type="button" value="X" onclick="del(this)" />
     </td>
     </tr>-->
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="3" align="center" >Grand total</td>
-      <td id="total"></td>
-      <td>dollars</td>
-    </tr>
-  </tfoot>
-</table>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" align="center">Grand total</td>
+            <td id="total"></td>
+            <td>dollars</td>
+          </tr>
+        </tfoot>
+      </table>
 
 
-<!-- <h2>Comments</h2>
+      <!-- <h2>Comments</h2>
 <div class="row">   
 <textarea id="subject" name="subject" placeholder="Write something.."  rows="10" cols="50"></textarea> 
 </div> -->
-<h2>Comments</h2>
-<div id='message'>
-<div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Write something.."></textarea>
-                  <div class="validation"></div>
-                </div>
-<div class="row">
-    <a href="/checkout"><input type="submit" class="btn-checkout" value="Next"></a> 
-</div>
-</div>
-<!-- </form> -->
-</div>
-<p></p>
-  <!--==========================
-    Footer
-  ============================-->
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 text-lg-left text-center">
-          <div class="copyright">
-            &copy; <strong>DEVELOPED BY TEAM 27</strong>
-          </div>
+      <h2>Comments</h2>
+      <div id='message'>
+        <div class="form-group">
+          <textarea class="form-control" name="message" rows="5" data-rule="required"
+            data-msg="Please write something for us" placeholder="Write something.."></textarea>
+          <div class="validation"></div>
         </div>
-        <div class="col-lg-6">
-          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-            <a href="#intro" class="scrollto">Home</a>
-            <a href="#about" class="scrollto">About</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-          </nav>
+        <div class="row">
+          <a href="/checkout"><input type="submit" class="btn-checkout" value="Next"></a>
         </div>
       </div>
+      <!-- </form> -->
     </div>
-  </footer><!-- #footer -->
+    <p></p>
+  </div>
+    <!--==========================
+    Footer
+  ============================-->
+    <footer id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 text-lg-left text-center">
+            <div class="copyright">
+              &copy; <strong>DEVELOPED BY TEAM 27</strong>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+              <a href="#intro" class="scrollto">Home</a>
+              <a href="#about" class="scrollto">About</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Use</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </footer><!-- #footer -->
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 </body>
 
-  <!--==========================
+<!--==========================
     js
   
 
