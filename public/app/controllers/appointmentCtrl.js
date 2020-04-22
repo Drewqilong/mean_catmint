@@ -3,7 +3,7 @@ angular.module('appointmentControllers', [])
 //Shopping cart
 .controller('appointmentCtrl', function($scope){
 
-
+    $scope.load = function (){
     
     
     function add_shoppingcar(btn){
@@ -75,7 +75,7 @@ function total(){
       total();
     }
 
-
+    }
 
 
 })
