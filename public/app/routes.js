@@ -43,11 +43,28 @@ var app = angular.module('appRoutes', ['ngRoute'])
         authenticated: true
     })
 
+
     // Route: appointment
     .when('/appointment', {
         templateUrl: 'app/views/pages/appointment.html',
+        controller: 'appointmentCtrl',
+        authenticated: false
     })
 
+    // Route: checkout
+    .when('/shoppingcart', {
+        templateUrl: 'app/views/pages/shoppingcart.html',
+        controller: 'shoppingcartCtrl',
+        authenticated: false
+    })
+
+    // Route: checkout
+    .when('/checkout', {
+        templateUrl: 'app/views/pages/checkout.html',
+    })
+
+
+    
     // Route: Facebook Callback Result            
     .when('/facebook/:token', {
         templateUrl: 'app/views/pages/users/social/social.html',
