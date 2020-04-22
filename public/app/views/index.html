@@ -39,10 +39,15 @@
   <script src="app/controllers/userCtrl.js"></script>
   <script src="app/controllers/mainCtrl.js"></script>
   <script src="app/controllers/userProfileCtrl.js"></script>
-
+  <script src="app/controllers/cartCtrl.js"></script>
+  <script src="app/controllers/appointmentCtrl.js"></script>
   <!-- Angular Services -->
   <script src="app/services/userServices.js"></script>
   <script src="app/services/authServices.js"></script>
+
+
+
+
 
   <!-- Bootstrap CSS File -->
   <link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -59,6 +64,7 @@
 </head>
 
 <body ng-app="userApp" ng-controller='mainCtrl as main'>
+
   <!--==========================
     Header
   ============================-->
@@ -79,9 +85,10 @@
           <li><a ng-show="!main.isLoggedIn" href="/login">Sign In</a></li>
           <li><a ng-show="!main.isLoggedIn" href="/register">Sign Up</a></li>
           <li><a ng-show="main.isLoggedIn" href="/profile">Hello {{ main.username }}</a></li>
-          <li><a ng-show="main.isLoggedIn" href="#" ng-click="main.logout();">Logout</a></li>
+          <li><a ng-show="main.isLoggedIn" href="#" ng-click="main.logout();">Signout</a></li>
         </ul>
-      </nav><!-- #nav-menu-container -->
+     </nav>   
+      <!-- #nav-menu-container -->
     </div>
   </header>
 
@@ -117,6 +124,8 @@
 
   <!-- Template Main Javascript File -->
   <script src="assets/js/main.js"></script>
+
+
 
 </body>
 

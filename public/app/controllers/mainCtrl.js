@@ -14,13 +14,13 @@ angular.module('mainController',['authServices'])
             app.home = false; // Clear home page div
         }
         // determine nav bar
-        if (['/','/login','/logout','/register'].lastIndexOf($window.location.pathname) !== -1){
+        if (['/','/login','/logout','/register','/shoppingcart'].lastIndexOf($window.location.pathname) !== -1){
             app.indexBar = false;
         } else {
             app.indexBar = true;
         }
         // determine intro section
-        if (['/','/login','/logout','/register','/appointment'].lastIndexOf($window.location.pathname) !== -1){
+        if (['/','/login','/logout','/register','/appointment','/shoppingcart'].lastIndexOf($window.location.pathname) !== -1){
             app.intro = false;
         } else {
             app.intro = true;

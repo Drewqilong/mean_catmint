@@ -71,7 +71,7 @@ jQuery(document).ready(function($) {
       $(this).toggleClass("fa-chevron-up fa-chevron-down");
     });
 
-    $(document).on('click', '#mobile-nav-toggle', function(e) {
+    $(document).on('click', '#mobile-nav-toggle, #mobile-nav', function(e) {
       $('body').toggleClass('mobile-nav-active');
       $('#mobile-nav-toggle i').toggleClass('fa-times fa-bars');
       $('#mobile-body-overly').toggle();
@@ -91,9 +91,22 @@ jQuery(document).ready(function($) {
     $("#mobile-nav, #mobile-nav-toggle").hide();
   }
 
+  // $(document).click(function() {
+    
+  //   // console.log($(location).attr('href'));
+  //   console.log(location.pathname.replace(/^\//, ''));
+  //   // console.log(this.pathname);
+  //   // if ($( "#header_index" ).length && this.pathname != '/services'){
+  //   //   $( "#header_index" ).remove();
+  //   // }
+  // });
+
+
+
   // Smoth scroll on page hash links
   $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    // if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    if (location.pathname.replace(/^\//, '') == ''|| location.pathname.replace(/^\//, '').indexOf('#') != -1) {
       var target = $(this.hash);
       if (target.length) {
         var top_space = 0;
@@ -146,3 +159,4 @@ jQuery(document).ready(function($) {
   // custom code
 
 });
+
