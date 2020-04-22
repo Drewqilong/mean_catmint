@@ -5,14 +5,14 @@ angular.module('appointmentControllers', [])
 
 
     
-    //this js中指当前对象
+    
     function add_shoppingcar(btn){
       var tr=btn.parentNode.parentNode;
       var tds=tr.getElementsByTagName("td");
       var name=tds[0].innerHTML;
       var price=tds[1].innerHTML;
       var tbody=document.getElementById("goods");
-      var row=tbody.insertRow();//insertRow表格开头插入新行
+      var row=tbody.insertRow();
       row.innerHTML="<td>"+name+"</td>"+
     "<td>"+price+"</td>"+
 "<td align='center'>"+
@@ -27,32 +27,32 @@ angular.module('appointmentControllers', [])
     "</tr>"
     total();
     }
-    //增加减少数量，用n正负1来表示点击了加减按钮
+    //to change the quantity
     function change(btn,n){
-    //获取数量的三个input对象
+    //to get the quantity
     var inputs = btn.parentNode.getElementsByTagName("input");
-    //获取原来的数量
+    //to get the original quantity
     var amount = parseInt(inputs[1].value);
-    //当amount=1时不能再点击"-"符号
-    //用n<0来表示点击了减button
+    
+    //use n<0 to express we minus the button
     if(amount<=1 && n<0){
   return;
     }
-    //根据加减来改变数量
+    //change the qty according to plus or minus button
     inputs[1].value = amount + n;
-    //将改变后的数量值赋值给amount
+    //combine changed qty with amts
     amount = inputs[1].value;
-    //获取表格中的行
+    //get all rows
     var tr = btn.parentNode.parentNode;
-    //获取所有的列
+    //get all columns
     var tds = tr.getElementsByTagName("td");
-    //获取单价
+    //get the price
     var price = parseFloat(tds[1].innerHTML);
-    //总价=单价*数量
+    
     var m = price * amount;
-    //将总价赋值给相应的位置
+    
     tds[3].innerHTML = m;
-    //调用total方法，求总计
+    
     total();
   }
 
