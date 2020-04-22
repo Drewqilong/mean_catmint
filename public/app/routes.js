@@ -48,6 +48,7 @@ var app = angular.module('appRoutes', ['ngRoute'])
     .when('/appointment', {
         templateUrl: 'app/views/pages/appointment.html',
         controller: 'appointmentCtrl',
+        controllerAs: 'appointment',
         authenticated: false
     })
 
