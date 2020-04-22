@@ -158,12 +158,13 @@ input[type=checkbox]:hover {
 
 }
 
+/*
 table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 47%;
   border: 1px solid #ddd;
-}
+}*/
 
 th, td {
   text-align: left;
@@ -262,6 +263,6 @@ border-bottom: 1px solid #ddd;
 tr:nth-child(even) {background-color: #f2f2f2;}
 table th {
   font-family:  "Indie Flower", sans-serif;
-  font-size: 50px;
+  
 
 }
