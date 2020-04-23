@@ -193,7 +193,7 @@ tr:nth-child(even) {
 
 	.page {
 		    width: 100%;
-			margin-left: 1%;
+			margin-left: 0%;
 		}
 table {
   border-collapse: collapse;
