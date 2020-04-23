@@ -15,18 +15,28 @@ angular.module('appointmentControllers', [])
       var tbody = document.getElementById("goods");
       var row = tbody.insertRow();
       row.innerHTML = "<td>" + name + "</td>" +
+        // "<td>" + price + "</td>" +
+        // "<td align='center'>" +
+        // "<input type='button' value='-' id='jian'  onclick='change(this,-1)'  />" +
+        // "<input id='text' type='text' size='1' value='1' readonly='readonly' />" +
+        // "<input type='button' value='+' id='add'  onclick='change(this,1)'  />" +
+        // "</td>" +
         "<td>" + price + "</td>" +
         "<td align='center'>" +
-        "<input type='button' value='-' id='jian'  onclick='change(this,-1)'  />" +
-        "<input id='text' type='text' size='1' value='1' readonly='readonly' />" +
-        "<input type='button' value='+' id='add'  onclick='change(this,1)'  />" +
-        "</td>" +
-        "<td>" + price + "</td>" +
-        "<td align='center'>" +
-        "<input type='button' value='X' onclick='del(this)'/>" +
+        // "<input type='button' value='X' onclick='del(this)'/>" +
+        '<a href="javascript:;">X</a>'
         "</td>" +
         "</tr>"
       total();
+      
+      var delBtn = row.lastChild.getElementsByTagName("a")[0];
+      delBtn.onclick = function () {
+          var result = confirm("Are you sure you want to delete it?");
+          if (result) {
+              tbody.removeChild(row);
+              total();
+          }
+      }
     }
     //to change the quantity
     function change(btn, n) {
@@ -63,7 +73,7 @@ angular.module('appointmentControllers', [])
       var sum = 0;
       for (var i = 0; i < trs.length; i++) {
         var tds = trs[i].getElementsByTagName("td");
-        var m = tds[3].innerHTML;
+        var m = tds[1].innerHTML;
         sum += parseFloat(m);
       }
       var total = document.getElementById("total");
