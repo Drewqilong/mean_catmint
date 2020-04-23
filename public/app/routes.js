@@ -69,6 +69,11 @@ var app = angular.module('appRoutes', ['ngRoute'])
         templateUrl: 'app/views/pages/success.html'
     })
     
+    // Route: admin
+    .when('/admin', {
+        templateUrl: 'app/views/pages/admin.html'
+    })
+
     // Route: Facebook Callback Result            
     .when('/facebook/:token', {
         templateUrl: 'app/views/pages/users/social/social.html',
