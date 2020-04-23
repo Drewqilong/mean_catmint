@@ -7,7 +7,7 @@ body {background-color: #CCB1D0;}
   .step_container {
       width: 600px;
       height: 100px;
-      /*margin: 10px auto; */
+      margin: 10px auto; 
   }
 
 .progressbar {
