@@ -52,7 +52,7 @@ var app = angular.module('appRoutes', ['ngRoute'])
         authenticated: false
     })
 
-    // Route: checkout
+    // Route: shoppingcart
     .when('/shoppingcart', {
         templateUrl: 'app/views/pages/shoppingcart.html',
         controller: 'shoppingcartCtrl',
@@ -64,7 +64,10 @@ var app = angular.module('appRoutes', ['ngRoute'])
         templateUrl: 'app/views/pages/checkout.html',
     })
 
-
+    // Route: success
+    .when('/success', {
+        templateUrl: 'app/views/pages/success.html'
+    })
     
     // Route: Facebook Callback Result            
     .when('/facebook/:token', {
