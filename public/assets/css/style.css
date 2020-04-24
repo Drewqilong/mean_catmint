@@ -1495,7 +1495,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   
   float: left;
   height: 20px;
-  
+  margin-bottom: 1000px;
+  margin-right: 150px;
 }
 .rate:not(:checked) > input {
   position:absolute;
@@ -1526,4 +1527,18 @@ body.mobile-nav-active #mobile-nav-toggle {
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
   color: #c59b08;
+}
+
+
+#messages .form button[type="submit"] {
+  background: linear-gradient(45deg, #1de099, #1dc8cd);
+  background: linear-gradient(45deg, rgba(204, 177, 208), rgba(204, 200, 238));
+  border: 0;
+  border-radius: 20px;
+  padding: 8px 30px;
+  color: #fff;
+}
+
+#messages .form button[type="submit"]:hover {
+  cursor: pointer;
 }
