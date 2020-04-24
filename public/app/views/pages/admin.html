@@ -35,17 +35,26 @@
     <!-- Start: Table -->
     <table class="table">
         <tr>
+            <th>Action</th>
             <th>Username</th>
             <th>Email</th>
             <th>Services</th>
         </tr>
         <tbody ng-repeat="person in management.users">
             <tr ng-if="person.Appointment.length == 0">
+                <td>
+                    <!-- Delete Button -->
+                    <button type="button" ng-click="management.deleteUser(person.username);" class="btn btn-danger">Delete</button>
+                </td>
                 <td>{{ person.username }}</td>
                 <td>{{ person.email }}</td>
                 <td> </td>
             </tr>
             <tr ng-repeat="service in person.Appointment">
+                <td>
+                    <!-- Delete Button -->
+                    <button type="button" ng-click="management.deleteUser(person.username);" class="btn btn-danger">Delete</button>
+                </td>
                 <td>{{ person.username }}</td>
                 <td>{{ person.email }}</td>
                 <td>
