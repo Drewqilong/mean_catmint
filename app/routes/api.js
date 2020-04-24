@@ -161,6 +161,96 @@ module.exports = function(router) {
         });
     });
 
+        // Route to get all users for management page
+    router.get('/management', function(req, res) {
+        User.find({}, function(err, users) {
+            if (err) {
+                // Create an e-mail object that contains the error. Set to automatically send it to myself for troubleshooting.
+                var email = {
+                    from: 'MEAN Stack Staff, cruiserweights@zoho.com',
+                    to: 'gugui3z24@gmail.com',
+                    subject: 'Error Logged',
+                    text: 'The following error has been reported in the MEAN Stack Application: ' + err,
+                    html: 'The following error has been reported in the MEAN Stack Application:<br><br>' + err
+                };
+                // Function to send e-mail to myself
+                client.sendMail(email, function(err, info) {
+                    if (err) {
+                        console.log(err); // If error with sending e-mail, log to console/terminal
+                    } else {
+                        console.log(info); // Log success message to console if sent
+                        console.log(user.email); // Display e-mail that it was sent to
+                    }
+                });
+                res.json({ success: false, message: 'Something went wrong. This error has been logged and will be addressed by our staff. We apologize for this inconvenience!' });
+            } else {
+                User.findOne({ username: req.decoded.username }, function(err, mainUser) {
+                    if (err) {
+                        // Create an e-mail object that contains the error. Set to automatically send it to myself for troubleshooting.
+                        var email = {
+                            from: 'MEAN Stack Staff, cruiserweights@zoho.com',
+                            to: 'gugui3z24@gmail.com',
+                            subject: 'Error Logged',
+                            text: 'The following error has been reported in the MEAN Stack Application: ' + err,
+                            html: 'The following error has been reported in the MEAN Stack Application:<br><br>' + err
+                        };
+                        // Function to send e-mail to myself
+                        client.sendMail(email, function(err, info) {
+                            if (err) {
+                                console.log(err); // If error with sending e-mail, log to console/terminal
+                            } else {
+                                console.log(info); // Log success message to console if sent
+                                console.log(user.email); // Display e-mail that it was sent to
+                            }
+                        });
+                        res.json({ success: false, message: 'Something went wrong. This error has been logged and will be addressed by our staff. We apologize for this inconvenience!' });
+                    } else {
+                        // Check if logged in user was found in database
+                        if (!mainUser) {
+                            res.json({ success: false, message: 'No user found' }); // Return error
+                        } else {
+                            // Check if user has editing/deleting privileges 
+                            if (mainUser.permission === 'admin' || mainUser.permission === 'moderator') {
+                                // Check if users were retrieved from database
+                                if (!users) {
+                                    res.json({ success: false, message: 'Users not found' }); // Return error
+                                } else {
+                                    res.json({ success: true, users: users, permission: mainUser.permission }); // Return users, along with current user's permission
+                                }
+                            } else {
+                                res.json({ success: false, message: 'Insufficient Permissions' }); // Return access error
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    });
+    // Route to delete a user
+    router.delete('/management/:username', function (req, res) {
+        var deletedUser = req.params.username; // Assign the username from request parameters to a variable
+        User.findOne({ username: req.decoded.username }, function (err, mainUser) {
+            if (err) {
+                res.json({ success: false, message: err });
+            } else {
+                // Check if current user was found in database
+                if (!mainUser) {
+                    res.json({ success: false, message: 'No user found' }); // Return error
+                } else {
+                    // Fine the user that needs to be deleted
+                    User.findOneAndRemove({ username: deletedUser }, function (err, user) {
+                        if (err) {
+                            res.json({ success: false, message: err });
+                        } else {
+                            res.json({ success: true }); // Return success status
+                        }
+                    });
+
+                }
+            };
+        });
+    });
+    
     // Route to update/edit a profile
     router.put('/profile', function(req, res) {
         if (req.body.name) var newName = req.body.name; // Check if a change to name was requested
