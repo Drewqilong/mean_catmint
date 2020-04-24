@@ -18,22 +18,31 @@ angular.module('appointmentControllers', ['appointmentServices'])
         l_shopData.ToTime = $filter('date')(l_shopData.endat, "shortTime");
         delete l_shopData['endat']
       }
-      if (l_shopData.male && l_shopData.female) {
+
+      if (l_shopData.SittingType == '0') {
+        delete l_shopData['SittingType'];
+      }
+      if (l_shopData.male == undefined && l_shopData.female == undefined) {
         l_shopData.staffGender = 'Both';
-        delete l_shopData['male'];
-        delete l_shopData['female'];
       } else {
-        if (l_shopData.male) {
-          l_shopData.staffGender = 'Male';
+        if (l_shopData.male && l_shopData.female) {
+          l_shopData.staffGender = 'Both';
           delete l_shopData['male'];
-        };
-        if (l_shopData.female) {
-          l_shopData.staffGender = 'Female';
           delete l_shopData['female'];
+        } else {
+          if (l_shopData.male) {
+            l_shopData.staffGender = 'Male';
+            delete l_shopData['male'];
+          };
+          if (l_shopData.female) {
+            l_shopData.staffGender = 'Female';
+            delete l_shopData['female'];
+
+          }
 
         }
-
       }
+
       l_shopData['services'] = services;
 
       Appoint.setAppoint(l_shopData);
@@ -52,7 +61,7 @@ angular.module('appointmentControllers', ['appointmentServices'])
       console.log(appointServices);
       if (appointServices['services']) {
         appointServices['username'] = username;
- 
+
         Appoint.saveServices(appointServices).then(function (data) {
           if (data.data.success) {
             app.successMsg = data.data.message;

@@ -40,6 +40,7 @@
             <th>Username</th>
             <th>Email</th>
             <th>Time</th>
+            <th>Place</th>
             <th>StaffGender</th>
             <th>Total Amount</th>
             <th>Services</th>
@@ -57,6 +58,7 @@
                 <td> </td>
                 <td> </td>
                 <td> </td>
+                <td> </td>
             </tr>
             <tr ng-repeat="service in person.Appointment">
                 <td>
@@ -69,8 +71,11 @@
                 <td>
                     {{service.FromDate}},{{service.FromTime}} -- {{service.ToDate}},{{service.ToTime}}
                 </td>
+                <td style="white-space:nowrap;">
+                {{service.SittingType}}
+                </td>
                 <td>
-                    {{service.StaffGender}}
+                    {{service.staffGender}}
                 </td>
                 <td>{{service.services.Total}}</td>
                 <td>
