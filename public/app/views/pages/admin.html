@@ -63,7 +63,10 @@
                 <td>{{ person.username }}</td>
                 <td>{{ person.email }}</td>
                 <td>
-                    {{service}}
+                    {{service.FromDate}},{{service.FromTime}}-{{service.ToDate}},{{service.ToTime}}
+                </td>
+                <td>
+                    {{service.StaffGender}}
                 </td>
             </tr>
         </tbody>
