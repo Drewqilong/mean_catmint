@@ -1531,7 +1531,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 
 #messages .form button[type="submit"] {
-  background: linear-gradient(45deg, #1de099, #1dc8cd);
   background: linear-gradient(45deg, rgba(204, 177, 208), rgba(204, 200, 238));
   border: 0;
   border-radius: 20px;
