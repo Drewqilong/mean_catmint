@@ -56,6 +56,33 @@ module.exports = function(router) {
         
     });
 
+    
+    // save services
+    router.put('/services', function(req, res){
+        User.findOne({ username:  req.body.username}, function(err, user) {
+            if (err) {
+                res.json({ success: false, message: 'Something went wrong. This error has been logged and will be addressed by our staff. We apologize for this inconvenience!' });
+            } else {
+                // Check if user is in database
+                if (!user) {
+                    res.json({ success: false, message: 'No user found' }); // Return error
+                } else {
+                    // Save changes
+                    var services = req.body.services;
+                    user.Appointment.push(services);
+                    user.save(function (err) {
+                        if (err) {
+                            console.log(err); // Log any errors to the console
+                        } else {
+                            res.json({ success: true, message: 'Services had been updated'}); // Return success message
+                        }
+                    });
+                }
+            }
+        });
+        
+    });
+
     // User login route
     // http://localhost:8080/api/authenticate
     router.post('/authenticate', function(req, res) {
@@ -102,7 +129,7 @@ module.exports = function(router) {
         res.send(req.decoded);
     });
 
-    // Route to get the profile that needs to be edited
+    // Route to get the profile 
     router.get('/profile', function(req, res) {
         // var editUser = req.params.id; // Assign the _id from parameters to variable
         User.findOne({ username: req.decoded.username }, function(err, user) {
@@ -114,6 +141,21 @@ module.exports = function(router) {
                     res.json({ success: false, message: 'No user found' }); // Return error
                 } else {
                     res.json({ success: true, user: user }); // Return the user to be editted
+                }
+            }
+        });
+    });
+
+        // Route to get all users for management page
+    router.get('/management', function (req, res) {
+        User.find({}, function (err, users) {
+            if (err) {
+                res.json({ success: false, message: err });
+            } else {
+                if (!users) {
+                    res.json({ success: false, message: 'Users not found' }); // Return error
+                } else {
+                    res.json({ success: true, users: users }); // Return users, along with current user's permission
                 }
             }
         });

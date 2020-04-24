@@ -49,7 +49,7 @@ var app = angular.module('appRoutes', ['ngRoute'])
         templateUrl: 'app/views/pages/appointment.html',
         controller: 'appointmentCtrl',
         controllerAs: 'appointment',
-        authenticated: false
+        authenticated: true
     })
 
     // Route: shoppingcart
@@ -62,6 +62,9 @@ var app = angular.module('appRoutes', ['ngRoute'])
     // Route: checkout
     .when('/checkout', {
         templateUrl: 'app/views/pages/checkout.html',
+        controller: 'appointmentCtrl',
+        controllerAs: 'appointment',
+        authenticated: true
     })
 
     // Route: success
@@ -71,7 +74,10 @@ var app = angular.module('appRoutes', ['ngRoute'])
     
     // Route: admin
     .when('/admin', {
-        templateUrl: 'app/views/pages/admin.html'
+        templateUrl: 'app/views/pages/admin.html',
+        controller: 'managementCtrl',
+        controllerAs: 'management',
+        authenticated: false
     })
 
     // Route: Facebook Callback Result            
