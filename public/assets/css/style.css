@@ -1495,7 +1495,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   
   float: left;
   height: 20px;
-  
+  margin-bottom: 1000px;
+  margin-right: 150px;
 }
 .rate:not(:checked) > input {
   position:absolute;
