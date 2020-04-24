@@ -45,18 +45,21 @@ angular.module('managementController', [])
     };
 
     // Function: Delete a user
-    app.deleteUser = function(username) {
-        // Run function to delete a user
-        User.deleteUser(username).then(function(data) {
-            // Check if able to delete user
-            if (data.data.success) {
-                getUsers(); // Reset users on page
-            } else {
-                app.showMoreError = data.data.message; // Set error message
-            }
-        });
+    app.deleteUser = function (username) {
+        // Popup window to confirm the action
+        var result = confirm("Are you sure you want to delete it?");
+        if (result) {
+            // Run function to delete a user
+            User.deleteUser(username).then(function (data) {
+                // Check if able to delete user
+                if (data.data.success) {
+                    getUsers(); // Reset users on page
+                } else {
+                    app.showMoreError = data.data.message; // Set error message
+                }
+            });
+        };
     };
-
     // Function: Perform a basic search function
     app.search = function(searchKeyword, number) {
         // Check if a search keyword was provided
