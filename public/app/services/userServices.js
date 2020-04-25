@@ -68,6 +68,10 @@ angular.module('userServices', [])
         return $http.get('/api/management/');
     };
 
+    userFactory.updateFeedback = function(feedbackData){
+        return $http.put('/api/feedback/', feedbackData);
+    }
+
     // Get user to then edit
     userFactory.getUser = function(id) {
         return $http.get('/api/edit/' + id);

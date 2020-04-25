@@ -1,7 +1,7 @@
 angular.module('userProfileControllers', [])
 
 //Update the user profile
-.controller('profileEditCtrl', function($scope, User, $routeParams){
+.controller('profileEditCtrl', function($scope, User, $routeParams, $timeout){
     var app = this;
 
     // Function: get the profile that needs to be edited
@@ -21,4 +21,24 @@ angular.module('userProfileControllers', [])
             $scope.alert = 'alert alert-danger'; // Set class for message
         }
     });
+
+    app.feedback = function(feedbackData){
+        User.updateFeedback(feedbackData).then(function(data) {
+            // Check if able to edit user
+            if (data.data.success) {
+                $scope.alert = 'alert alert-success'; // Set class for message
+                app.successMsg = data.data.message; // Set success message
+                // Function: After two seconds, clear and re-enable
+                $timeout(function() {
+                    app.contact.subject.$setPristine(); // Reset username form
+                    app.contact.subject.$setUntouched(); // Reset username form
+                    app.successMsg = false; // Clear success message
+                }, 2000);
+            } else {
+                app.errorMsg = data.data.message; // Set error message
+                app.disabled = false; // Enable form for editing
+            };
+            
+        });
+    }
 })
