@@ -9,7 +9,7 @@
                     <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Messages</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Update pet info</a>
                 </li>
             </ul>
             <div class="tab-content py-4">
@@ -17,12 +17,12 @@
                     <h5 class="mb-3">User Profile</h5>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6>Username</h6>
+                            <h6><strong>Username</strong></h6>
                             <p>
                                 <!-- Web Designer, UI/UX Engineer -->
                                 {{profileEdit.username}}
                             </p>
-                            <h6>Email</h6>
+                            <h6><strong>Email</strong></h6>
                             <p>
                                 <!-- Indie music, skiing and hiking. I love the great outdoors. -->
                                 {{profileEdit.email}}
@@ -127,12 +127,13 @@
                     </table>
                     -->
                     <!--<div class="col-lg-5 col-md-8"> -->
-                    <div class="form" >
+                    <div class="form">
                         <h3>Please tell us your feedback!</h3>
                         <!-- <div id="sendmessage">Your message has been sent. Thank you!</div> -->
                         <div id="errormessage"></div>
                         <!-- <form action="" method="post" role="form" class="contactForm"> -->
-                        <form class="contactForm" name='profileEdit.contact' ng-submit="profileEdit.feedback(profileEdit.feedbackData)">
+                        <form class="contactForm" name='profileEdit.contact'
+                            ng-submit="profileEdit.feedback(profileEdit.feedbackData)">
                             <!--
                                 <div class="form-row">
                                     <div class="form-group col-lg-6">
@@ -152,53 +153,60 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" name="subject" id="subject"
                                     placeholder="Subject" data-rule="minlen:4"
-                                    data-msg="Please enter at least 8 chars of subject" ng-model="profileEdit.feedbackData.subject" />
+                                    data-msg="Please enter at least 8 chars of subject"
+                                    ng-model="profileEdit.feedbackData.subject" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="message" rows="5" data-rule="required"
-                                    data-msg="Please write something for us" placeholder="Message" ng-model="profileEdit.feedbackData.message"></textarea>
+                                    data-msg="Please write something for us" placeholder="Message"
+                                    ng-model="profileEdit.feedbackData.message"></textarea>
                                 <div class="validation"></div>
                             </div>
 
                             <h3>Ratings</h3>
 
                             <div class="rate">
-                                <input type="radio" id="star5" name="rate" value="5"  ng-model="profileEdit.feedbackData.rating"/>
+                                <input type="radio" id="star5" name="rate" value="5"
+                                    ng-model="profileEdit.feedbackData.rating" />
                                 <label for="star5" title="text">5 stars</label>
-                                <input type="radio" id="star4" name="rate" value="4" ng-model="profileEdit.feedbackData.rating"/>
+                                <input type="radio" id="star4" name="rate" value="4"
+                                    ng-model="profileEdit.feedbackData.rating" />
                                 <label for="star4" title="text">4 stars</label>
-                                <input type="radio" id="star3" name="rate" value="3" ng-model="profileEdit.feedbackData.rating"/>
+                                <input type="radio" id="star3" name="rate" value="3"
+                                    ng-model="profileEdit.feedbackData.rating" />
                                 <label for="star3" title="text">3 stars</label>
-                                <input type="radio" id="star2" name="rate" value="2" ng-model="profileEdit.feedbackData.rating"/>
+                                <input type="radio" id="star2" name="rate" value="2"
+                                    ng-model="profileEdit.feedbackData.rating" />
                                 <label for="star2" title="text">2 stars</label>
-                                <input type="radio" id="star1" name="rate" value="1" ng-model="profileEdit.feedbackData.rating"/>
+                                <input type="radio" id="star1" name="rate" value="1"
+                                    ng-model="profileEdit.feedbackData.rating" />
                                 <label for="star1" title="text">1 star</label>
                             </div>
                             <br>
                             <br>
-                            <div class="text-center row" >
+                            <div class="text-center row">
                                 <button type="submit" title="Send Message">Send
                                     Message</button>
                             </div>
                         </form>
                         <br>
-                        
+
                         <!-- Custom Message -->
                         <div class="row show-hide-message" ng-show="profileEdit.successMsg || profileEdit.errorMsg ">
                             <div ng-class="alert">{{ profileEdit.successMsg || profileEdit.errorMsg }}</div>
                         </div>
                         <!-- Custom Message -->
-                        
+
                         <br>
-                        </div>
+                    </div>
                     <!-- </div> -->
 
                     <!-- ================================================================ Edit ====================================================================-->
 
                 </div>
                 <div class="tab-pane" id="edit">
-                    <form role="form">
+                    <form role="form" name="profileEdit.catForm" ng-submit="profileEdit.cat(profileEdit.catData)">
 
                         <!--   <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
@@ -213,18 +221,28 @@
                             </div>
                         </div>
                     -->
+
+
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <label class="col-lg-3 col-form-label form-control-label">Petname</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" value="">
+                                <input class="form-control" type="text" placeholder="{{profileEdit.petname}}" ng-model="profileEdit.catData.petname">
                             </div>
 
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Petname</label>
+                            <label class="col-lg-3 col-form-label form-control-label">Age</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" value="">
+                                <input class="form-control" type="text" placeholder="{{profileEdit.age}}" ng-model="profileEdit.catData.age">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Breed</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" placeholder="{{profileEdit.breed}}" ng-model="profileEdit.catData.breed">
                             </div>
 
                         </div>
@@ -297,11 +315,22 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
-                                <input type="reset" class="btn btn-secondary" value="Cancel">
-                                <input type="button" class="btn btn-primary" value="Save Changes">
+                                <!-- <input type="reset" class="btn btn-secondary" value="Cancel"> -->
+                                <!-- <input type="button" class="btn btn-primary" value="Update"> -->
+                                <button type="submit" title="Update">Update</button>
                             </div>
                         </div>
+
                     </form>
+                    <br>
+
+                    <!-- Custom Message -->
+                    <div class="row show-hide-message" ng-show="profileEdit.successMsg || profileEdit.errorMsg ">
+                        <div ng-class="alert">{{ profileEdit.successMsg || profileEdit.errorMsg }}</div>
+                    </div>
+                    <!-- Custom Message -->
+
+                    <br>
                 </div>
             </div>
         </div>

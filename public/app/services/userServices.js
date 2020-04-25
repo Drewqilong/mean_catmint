@@ -67,9 +67,15 @@ angular.module('userServices', [])
     userFactory.getUsers = function() {
         return $http.get('/api/management/');
     };
-
+     
+    // Save feedback
     userFactory.updateFeedback = function(feedbackData){
-        return $http.put('/api/feedback/', feedbackData);
+        return $http.put('/api/feedback', feedbackData);
+    }
+
+    // Update cat information
+    userFactory.updateCat = function(catData){
+        return $http.put('/api/cat', catData);
     }
 
     // Get user to then edit

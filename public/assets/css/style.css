@@ -1530,7 +1530,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 
-#messages .form button[type="submit"] {
+#messages .form button[type="submit"], #edit  button[type="submit"] {
   background: linear-gradient(45deg, rgba(204, 177, 208), rgba(204, 200, 238));
   border: 0;
   border-radius: 20px;
@@ -1538,6 +1538,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
 }
 
-#messages .form button[type="submit"]:hover {
+#messages .form button[type="submit"]:hover, #edit button[type="submit"]:hover {
   cursor: pointer;
 }

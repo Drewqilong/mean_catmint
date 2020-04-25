@@ -10,7 +10,11 @@ var UserSchema = new Schema({
     password: { type: String, required: true},
     petname: { type: String},
     Appointment:{type: Array},
-    Feedback:{type: Array}
+    Feedback:{type: Array},
+    Petinfo:{
+        Petname: { type: String },
+        Age: { type: String },
+        Breed: { type: String }}
     
 });
 

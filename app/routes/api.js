@@ -69,6 +69,9 @@ module.exports = function(router) {
                 } else {
                     // Save changes
                     var services = req.body.services;
+                    if(user.Petinfo.Petname){
+                        services['Petname'] = user.Petinfo.Petname;
+                    };
                     user.Appointment.push(services);
                     user.save(function (err) {
                         if (err) {
@@ -209,6 +212,45 @@ module.exports = function(router) {
 
         });
     });
+
+    //Update cat information
+    router.put('/cat', function (req, res) {
+        var petname = req.body.petname;
+        var age = req.body.age;
+        var breed = req.body.breed;
+        User.findOne({ username: req.decoded.username }, function (err, user) {
+            if (err) {
+                res.json({ success: false, message: 'Something went wrong. This error has been logged and will be addressed by our staff. We apologize for this inconvenience!' });
+            } else {
+                // Check if user is in database
+                if (!user) {
+                    res.json({ success: false, message: 'No user found' }); // Return error
+                } else {
+                    // Save changes
+                    if(petname){
+                        user.Petinfo.Petname = petname;
+                    };
+                    
+                    if(age){
+                        user.Petinfo.Age = age;
+                    };
+                    
+                    if(breed){
+                        user.Petinfo.Breed = breed;
+                    };
+                    user.save(function (err) {
+                        if (err) {
+                            console.log(err); // Log any errors to the console
+                        } else {
+                            res.json({ success: true, message: 'Cat information updated!' }); // Return success message
+                        }
+                    });
+                }
+            }
+
+        });
+    });
+
     // Route to update/edit a profile
     router.put('/profile', function(req, res) {
         if (req.body.name) var newName = req.body.name; // Check if a change to name was requested
