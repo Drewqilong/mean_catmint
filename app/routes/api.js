@@ -57,7 +57,7 @@ module.exports = function(router) {
     });
 
     
-    // save services
+    // save appointment
     router.put('/services', function(req, res){
         User.findOne({ username:  req.body.username}, function(err, user) {
             if (err) {
@@ -77,7 +77,7 @@ module.exports = function(router) {
                         if (err) {
                             console.log(err); // Log any errors to the console
                         } else {
-                            res.json({ success: true, message: 'Services had been updated'}); // Return success message
+                            res.json({ success: true, message: 'Appointment had been saved'}); // Return success message
                         }
                     });
                 }

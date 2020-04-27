@@ -1,6 +1,6 @@
 angular.module('managementController', [])
 
-// Controller: User to control the management page and managing of user accounts
+// Controller: User to control the admin page and managing of user accounts
 .controller('managementCtrl', function(User, $scope) {
     var app = this;
     app.loading = true; // Start loading icon on page load

@@ -1,13 +1,14 @@
 angular.module('appointmentControllers', ['appointmentServices'])
 
-  //Shopping cart
+  //Control appointment page
   .controller('appointmentCtrl', function ($scope, $timeout, $location, $filter, Appoint) {
     var app = this;
 
-
+    //Get data from webpage and address them as database format
     app.setShoppingCart = function (shopData) {
       var services = getShoppinglist();
       var l_shopData = app.shopData;
+      //date format: split the date and time to two fields
       if (l_shopData.startfm) {
         l_shopData.FromDate = $filter('date')(l_shopData.startfm, "MM/dd/yyyy");
         l_shopData.FromTime = $filter('date')(l_shopData.startfm, "shortTime");
@@ -19,6 +20,7 @@ angular.module('appointmentControllers', ['appointmentServices'])
         delete l_shopData['endat']
       }
 
+      //Staff gender requirement
       if (l_shopData.SittingType == '0') {
         delete l_shopData['SittingType'];
       }
@@ -45,8 +47,10 @@ angular.module('appointmentControllers', ['appointmentServices'])
 
       l_shopData['services'] = services;
 
+      // Call function to save the appointment data into local
       Appoint.setAppoint(l_shopData);
 
+      //move to checkout page
       $timeout(function () {
         $location.path('/checkout');
         l_shopData = '';
@@ -57,16 +61,19 @@ angular.module('appointmentControllers', ['appointmentServices'])
 
     app.checkout = function (username) {
       var appointServices = {};
+      //Get appointment data from local storage
       appointServices['services'] = Appoint.getAppoint()
       console.log(appointServices);
       if (appointServices['services']) {
         appointServices['username'] = username;
 
+        //save data to database
         Appoint.saveServices(appointServices).then(function (data) {
           if (data.data.success) {
             app.successMsg = data.data.message;
             console.log(app.successMsg);
 
+            //When success, display the success.html
             $timeout(function () {
               $location.path('/success');
               app.shopData = '';
