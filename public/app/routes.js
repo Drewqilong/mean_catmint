@@ -47,7 +47,7 @@ var app = angular.module('appRoutes', ['ngRoute'])
     // Route: appointment
     .when('/appointment', {
         templateUrl: 'app/views/pages/appointment.html',
-        controller: 'appointmentCtrl',
+        controller: 'appointmentCtrl',//interact with appointment data
         controllerAs: 'appointment',
         authenticated: true
     })
@@ -75,7 +75,7 @@ var app = angular.module('appRoutes', ['ngRoute'])
     // Route: admin
     .when('/admin', {
         templateUrl: 'app/views/pages/admin.html',
-        controller: 'managementCtrl',
+        controller: 'managementCtrl',//Get all users for admin.html
         controllerAs: 'management',
         authenticated: false
     })

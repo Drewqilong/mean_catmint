@@ -7,6 +7,7 @@ angular.module('appointmentServices', [])
         //     return $http.get('/api/profile');
         // };
         
+        //call api.js to save data
         appointFactory.saveServices = function(serviceData){
             return $http.put('/api/services', serviceData);
         }

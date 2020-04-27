@@ -59,6 +59,7 @@ module.exports = function(router) {
     
     // save appointment
     router.put('/services', function(req, res){
+        // Get the current user in the database
         User.findOne({ username:  req.body.username}, function(err, user) {
             if (err) {
                 res.json({ success: false, message: 'Something went wrong. This error has been logged and will be addressed by our staff. We apologize for this inconvenience!' });
@@ -72,6 +73,7 @@ module.exports = function(router) {
                     if(user.Petinfo.Petname){
                         services['Petname'] = user.Petinfo.Petname;
                     };
+                    //append the appointment information in the array
                     user.Appointment.push(services);
                     user.save(function (err) {
                         if (err) {
